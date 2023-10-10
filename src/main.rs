@@ -186,18 +186,17 @@ mod inner {
     }
 
     impl Create {
-        pub fn new() {
+        pub fn new(length: u8) {
             println!("+");
-            let code: Vec<String> = Self::__crate_code();
+            let code: Vec<String> = Self::__crate_code(length);
             println!("{:?}", code);
             Self::__file_write(code);
         }
 
-        fn __crate_code() -> Vec<String> {
+        fn __crate_code(length: u8) -> Vec<String> {
             use rand::Rng;
 
             let mut key: Vec<String> = Vec::new();
-            let length = 5;
 
             let letters_and_digits: Vec<u8> = (b'a'..=b'z').chain(b'A'..=b'Z').chain(b'0'..=b'9').collect();
 
@@ -277,7 +276,7 @@ fn main() {
         println!("{}", text);
 
     } else if input.trim() == "C".to_string() {
-        inner::Create::new();
+        inner::Create::new(5);
     } else {
 
     }
