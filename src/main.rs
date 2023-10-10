@@ -63,7 +63,7 @@ mod inner {
             full.append(&mut probel);
             full.append(&mut znaki);
             
-            let base: Vec<String> = Self::file_read();
+            let base: Vec<String> = Self::__file_read();
 
             Encode { full, text: text.to_string(), base}
         }
@@ -166,7 +166,7 @@ mod inner {
         }
 
 
-        fn file_read() -> Vec<String> {
+        fn __file_read() -> Vec<String> {
             // Читаем данные из файла
             use std::fs::File;
             use std::io::Read;
@@ -188,12 +188,12 @@ mod inner {
     impl Create {
         pub fn new() {
             println!("+");
-            let code: Vec<String> = Self::crate_code();
+            let code: Vec<String> = Self::__crate_code();
             println!("{:?}", code);
-            Self::file_write(code);
+            Self::__file_write(code);
         }
 
-        fn crate_code() -> Vec<String> {
+        fn __crate_code() -> Vec<String> {
             use rand::Rng;
 
             let mut key: Vec<String> = Vec::new();
@@ -216,7 +216,7 @@ mod inner {
             key
         }
 
-        fn file_write(vec: Vec<String>) {
+        fn __file_write(vec: Vec<String>) {
             use std::fs::File;
             use std::io::Write;
 
